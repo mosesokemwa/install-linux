@@ -71,3 +71,17 @@ sudo apt-get install nvidia-367
 ```
 
 ou escoha a versão mais recente, instale e reinicie!
+
+## Problemas com Audio
+
+Tentar os passos desse [link](https://help.ubuntu.com/community/SoundTroubleshootingProcedure)
+
+```sh
+killall pulseaudio; rm -r ~/.config/pulse/* ; rm -r ~/.pulse*
+
+# wait ten seconds, then run this:
+pulseaudio -D
+pulseaudio -k
+```
+
+Então reinicie.

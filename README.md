@@ -147,6 +147,16 @@ Add entry on your `/etc/fstab` file:
 sudo sysctl -w vm.drop_caches=3
 ```
 
+**Update swappiness (how much percent of memory should be in use before using swap?)**
+
+To set swappiness to 10% (instead default of 60%):
+
+```console
+sudo sysctl vm.swappiness=10
+```
+
+Then, restart the system or run **clear swap** commands (see below).
+
 **Clear swap**
 
 ```console
@@ -198,6 +208,15 @@ sudo chroot /mnt
 sudo grub-install /dev/sda 
 sudo update-grub
 exit
+```
+
+## Use Jack instead pulseaudio
+
+```sh
+sudo apt-get install qjackctl pulseaudio-module-jack
+pactl load-module module-jack-sink
+pactl load-module module-jack-source
+pactl set-default-sink jack_out # Or open Sound Configuration and select "Jack"
 ```
 
 ## License
